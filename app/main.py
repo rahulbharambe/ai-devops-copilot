@@ -1,18 +1,22 @@
+import time
 from analyzer import load_data, detect_pattern
 from ai_engine import analyze
 from brd_generator import generate_brd
 from integrations.servicenow import update_ticket
 from integrations.azure_devops import create_task
 
-def run():
+def listen_for_ticket():
+    print("🟢 Listening for ServiceNow tickets...\n")
+    time.sleep(2)  # simulate wait
+    return True
+
+def run_pipeline():
     ticket, logs, code = load_data()
 
-    print("🔍 Running AI Analysis...\n")
+    print("⚡ Trigger received from ServiceNow\n")
 
     result = analyze(ticket, logs, code)
-
     pattern = detect_pattern(logs)
-
     brd = generate_brd(result)
 
     update_ticket(ticket["id"], result)
@@ -28,4 +32,5 @@ def run():
     print(brd)
 
 if __name__ == "__main__":
-    run()
+    if listen_for_ticket():
+        run_pipeline()
