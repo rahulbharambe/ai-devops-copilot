@@ -28,6 +28,9 @@ def run_pipeline():
     print("\n=== PATTERN DETECTION ===")
     print(pattern)
 
+    print("\n=== RECOMMENDATION ===")
+    print("Consider refactoring frequently failing components.")
+
     print("\n=== BRD ===")
     print(brd)
 
