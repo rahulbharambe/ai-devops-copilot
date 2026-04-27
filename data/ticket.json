@@ -1,0 +1,5 @@
+{
+  "id": "INC001",
+  "description": "Application crash due to NullPointerException in UserService",
+  "component": "UserService"
+}
