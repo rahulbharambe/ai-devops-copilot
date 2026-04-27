@@ -58,6 +58,8 @@ BRD Generator
 ↓
 Azure DevOps Task
 
+Note: Current implementation simulates automation and integration. In a production setup, this would be implemented using ServiceNow webhooks, Azure DevOps APIs, and Copilot/Power Automate flows.
+
 ---
 
 ## ⚙️ Tech Stack
