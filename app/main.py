@@ -34,6 +34,9 @@ def run_pipeline():
     print("\n=== BRD ===")
     print(brd)
 
+    print("\n=== SYSTEM NOTE ===")
+    print("This is a simulated AI-driven DevOps automation pipeline.")
+
 if __name__ == "__main__":
     if listen_for_ticket():
         run_pipeline()
