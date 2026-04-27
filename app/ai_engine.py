@@ -1,26 +1,38 @@
-import openai
+from openai import OpenAI
 
-openai.api_key = "YOUR_API_KEY"
+client = OpenAI(api_key="YOUR_API_KEY")
 
 def analyze(ticket, logs, code):
-    prompt = f"""
-    Analyze:
+    try:
+        prompt = f"""
+        You are an AI DevOps assistant.
 
-    Ticket: {ticket}
-    Logs: {logs}
-    Code: {code}
+        Analyze the following:
 
-    Give:
-    - Root Cause
-    - Fix
-    - File Name
-    - Prevention
-    - Priority
-    """
+        Ticket:
+        {ticket}
 
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[{"role": "user", "content": prompt}]
-    )
+        Logs:
+        {logs}
 
-    return response['choices'][0]['message']['content']
+        Code:
+        {code}
+
+        Provide structured output:
+
+        Root Cause:
+        Fix:
+        Impacted File:
+        Priority:
+        Prevention:
+        """
+
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        return response.choices[0].message.content
+
+    except Exception as e:
+        return f"Error occurred: {str(e)}"
