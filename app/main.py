@@ -1,5 +1,5 @@
 import time
-from analyzer import load_data, detect_pattern
+from app.analyzer import load_data, detect_pattern
 from ai_engine import analyze
 from brd_generator import generate_brd
 from integrations.servicenow import update_ticket
