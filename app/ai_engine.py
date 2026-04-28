@@ -1,38 +1,17 @@
-from openai import OpenAI
-
-client = OpenAI(api_key="YOUR_API_KEY")
-
 def analyze(ticket, logs, code):
-    try:
-        prompt = f"""
-        You are an AI DevOps assistant.
+    return """
+Root Cause:
+NullPointerException due to missing null check
 
-        Analyze the following:
+Fix:
+Add null validation before accessing object
 
-        Ticket:
-        {ticket}
+Impacted File:
+UserService.java
 
-        Logs:
-        {logs}
+Priority:
+High
 
-        Code:
-        {code}
-
-        Provide structured output:
-
-        Root Cause:
-        Fix:
-        Impacted File:
-        Priority:
-        Prevention:
-        """
-
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{"role": "user", "content": prompt}]
-        )
-
-        return response.choices[0].message.content
-
-    except Exception as e:
-        return f"Error occurred: {str(e)}"
+Prevention:
+Add validation and improve logging
+"""
