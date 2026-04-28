@@ -1,7 +1,7 @@
 import time
 from app.analyzer import load_data, detect_pattern
-from ai_engine import analyze
-from brd_generator import generate_brd
+from app.ai_engine import analyze
+from app.brd_generator import generate_brd
 from integrations.servicenow import update_ticket
 from integrations.azure_devops import create_task
 
