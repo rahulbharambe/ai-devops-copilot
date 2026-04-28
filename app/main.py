@@ -4,7 +4,6 @@ from app.ai_engine import analyze
 from app.brd_generator import generate_brd
 from integrations.servicenow import update_ticket
 from integrations.azure_devops import create_task
-
 def listen_for_ticket():
     print("🟢 Listening for ServiceNow tickets...\n")
     time.sleep(2)  # simulate wait
